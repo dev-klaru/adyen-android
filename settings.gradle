@@ -9,7 +9,9 @@ pluginManagement {
 
 plugins {
     // this has to be declared here directly because settings.gradle cannot reference version catalogs
-    id("org.gradle.toolchains.foojay-resolver-convention") version "0.10.0"
+    // The foojay resolver plugin sometimes returns an unknown vendor (IBM_SEMERU) which
+    // Gradle 9.3.1 can't parse. Disable it for local builds to force using the installed JVM.
+    // id("org.gradle.toolchains.foojay-resolver-convention") version "0.10.0"
 }
 
 // Apply local.gradle if it exists (used for local testing configurations)
